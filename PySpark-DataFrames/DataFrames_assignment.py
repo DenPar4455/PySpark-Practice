@@ -22,10 +22,10 @@ print(df.count())   # count number of records
 df2 = df.filter(df.city == "New York")
 
 df2.select("name", "salary").show() # show only name and salary
-print(df2.count())                  # show number of poeple in NY
+print(df2.count())                  # show number of people in NY
 df2.agg({"salary":"avg"}).show()    # show their average salary
 
-# show the average of salary per city orderd in descending order
+# show the average salary per city, ordered in descending order
 df.groupBy("city").agg(sf.avg("salary")).orderBy(["avg(salary)"], ascending=[False]).show()
 
 # add a new column of the income bracket of each person
